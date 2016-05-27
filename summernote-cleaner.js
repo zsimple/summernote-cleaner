@@ -47,7 +47,7 @@
                 }
                 var badAttributes=['style','start'];
                 for(var ii=0;ii<badAttributes.length;ii++){
-                    var attributeStripper=new RegExp(' '+badAttributes[i]+'="(.*?)"','gi');
+                    var attributeStripper=new RegExp(' '+badAttributes[ii]+'="(.*?)"','gi');
                     output=output.replace(attributeStripper,'');
                 }
                 return output;
@@ -60,7 +60,7 @@
                         tooltip:lang.cleaner.tooltip,
                         click:function(){
                             unsaved=true;
-                            var text=cleanText($(options.element).text());
+                            var text=cleanText($(options.element).html());
                             $(options.element).summernote("code",text);
                             $('.note-resizebar').append('<div id="cleanerAlert" style="position:absolute;bottom:0;left:2px;font-size:10px;">'+lang.cleaner.notification+'</div>');
                             setTimeout(function(){$('#cleanerAlert').remove();},options.time);
@@ -73,7 +73,7 @@
                 'summernote.paste':function(we,e){
                     if(options.action=='both'||options.action=='paste'){
                         e.preventDefault();
-                        var text=e.originalEvent.clipboardData.getData('text/plain');
+                        var text=e.originalEvent.clipboardData.getData('text/html');
                         var text=cleanText(text);
                         var $dom=$('<div class="pasted"/>').html(text);
                         $note.summernote('insertNode',$dom[0]);

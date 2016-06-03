@@ -74,8 +74,9 @@
                     if(options.action=='both'||options.action=='paste'){
                         e.preventDefault();
                         var text=e.originalEvent.clipboardData.getData('text/html');
+                        if (text == '') text = e.originalEvent.clipboardData.getData('text/plain').replace(/\n/g, "<br>");
                         var text=cleanText(text);
-                        var $dom=$('<div class="pasted"/>').html(text);
+                        var $dom=$('<div class="pasted"/>').html($("<div>").text(text).html());
                         $note.summernote('insertNode',$dom[0]);
                         $('.note-resizebar').append('<div id="cleanerAlert" style="position:absolute;bottom:0;left:2px;font-size:10px;">'+lang.cleaner.notification+'</div>');
                         setTimeout(function(){$('#cleanerAlert').remove();},options.time);

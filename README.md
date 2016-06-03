@@ -1,5 +1,5 @@
 # summernote-cleaner
-原插件简单的把html转为了text，DOM格式都没了，这里改造一下。
+原插件简单的把html转为了text，DOM结构都没了，这里改造一下，比较马虎的完成Word等富文本粘贴，也许可以用tidy来净化一下？
 
 A plugin for the [Summernote](https://github.com/summernote/summernote/) WYSIWYG editor.
 

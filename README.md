@@ -1,4 +1,6 @@
 # summernote-cleaner
+原插件简单的把html转为了text，DOM格式都没了，这里改造一下。
+
 A plugin for the [Summernote](https://github.com/summernote/summernote/) WYSIWYG editor.
 
 summernote-cleaner removes the unnecessary and possibly layout breaking Crud that gets added to MSWord, Open Office, and Libre Office Documents.
